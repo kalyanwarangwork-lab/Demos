@@ -391,28 +391,6 @@
 
   <p class="sub">Thank you for supporting Horizon Foundation. A receipt has been sent to your email. Your contribution goes directly to programs that change lives.</p>
 
-  <!-- RECEIPT CARD -->
-  <div class="receipt">
-    <div class="receipt-label">Donation summary</div>
-
-    <div class="receipt-row">
-      <span class="receipt-key">Amount</span>
-      <span class="receipt-val receipt-amount" id="receiptAmount">—</span>
-    </div>
-    <div class="receipt-row">
-      <span class="receipt-key">Type</span>
-      <span class="receipt-val" id="receiptType">—</span>
-    </div>
-    <div class="receipt-row">
-      <span class="receipt-key">Status</span>
-      <span class="receipt-val"><span class="badge">Confirmed</span></span>
-    </div>
-    <div class="receipt-row">
-      <span class="receipt-key">Date</span>
-      <span class="receipt-val" id="receiptDate">—</span>
-    </div>
-  </div>
-
   <!-- ACTIONS -->
   <div class="actions">
     <a href="HorizonFoundation.html" class="btn-primary">
@@ -458,20 +436,6 @@
 </footer>
 
 <script>
-  // Populate receipt from URL params (Stripe adds ?session_id=... on redirect)
-  const params = new URLSearchParams(window.location.search);
-
-  const amountEl = document.getElementById('receiptAmount');
-  const typeEl   = document.getElementById('receiptType');
-  const dateEl   = document.getElementById('receiptDate');
-
-  const amount = params.get('amount');
-  const type   = params.get('type');
-
-  amountEl.textContent = amount ? '$' + parseFloat(amount).toLocaleString('en-US', { minimumFractionDigits: 0 }) : 'Donation';
-  typeEl.textContent   = type === 'Recurring' ? 'Recurring' : 'One-time';
-  dateEl.textContent   = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
   // Share button
   document.getElementById('shareBtn').addEventListener('click', function() {
     const text = 'I just donated to Horizon Foundation — they\'re transforming families across 38 communities. Join me!';
