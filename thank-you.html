@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Foundation — Thank You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F2F6F3;
+      --hero-bg: #142B1F;
+      --hero-text: #EDE8DF;
+      --hero-sub: #8FBEAA;
+      --accent: #3D8B5E;
+      --cta: #E8A840;
+      --cta-hover: #CF9230;
+      --cta-text: #0F1A0B;
+      --text: #151C18;
+      --text-mid: #415849;
+      --text-muted: #7A9485;
+      --border: #C4D8CB;
+      --card-bg: #FFFFFF;
+      --check-bg: #E8F4EE;
+      --stat-sep: rgba(255,255,255,0.13);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--hero-bg);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-logo { width: 38px; height: 38px; flex-shrink: 0; }
+    .nav-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--hero-text);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .nav-sub {
+      font-size: 11px;
+      color: var(--hero-sub);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--hero-sub);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-link:hover { color: var(--hero-text); }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 20px 80px;
+    }
+
+    /* ── CHECK CIRCLE ── */
+    .check-wrap {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--check-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .check-wrap svg {
+      animation: drawCheck 0.4s 0.35s ease-out both;
+    }
+
+    @keyframes drawCheck {
+      from { opacity: 0; transform: scale(0.7); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .check-wrap, .check-wrap svg { animation: none; }
+    }
+
+    /* ── HEADING BLOCK ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      text-wrap: balance;
+      text-align: center;
+      letter-spacing: -0.025em;
+      max-width: 560px;
+      margin-bottom: 18px;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    /* ── RECEIPT CARD ── */
+    .receipt {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      margin-bottom: 36px;
+    }
+
+    .receipt-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .receipt-row:last-child { border-bottom: none; }
+
+    .receipt-key {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .receipt-val {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .receipt-amount {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--check-bg);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── ACTIONS ── */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--cta);
+      color: var(--cta-text);
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover { background: var(--cta-hover); }
+
+    .btn-ghost {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 13px 20px;
+      background: transparent;
+      color: var(--text-mid);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── IMPACT STRIP ── */
+    .impact {
+      background: var(--hero-bg);
+      width: 100%;
+      padding: 48px 20px;
+      display: flex;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .impact-inner {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .impact-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cta);
+      margin-bottom: 14px;
+    }
+
+    .impact-headline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 600;
+      color: var(--hero-text);
+      line-height: 1.3;
+      text-wrap: balance;
+      margin-bottom: 32px;
+      letter-spacing: -0.015em;
+    }
+
+    .impact-stats {
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid var(--stat-sep);
+    }
+
+    .impact-stat {
+      flex: 1;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .impact-stat + .impact-stat { border-left: 1px solid var(--stat-sep); }
+
+    .impact-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 700;
+      color: var(--hero-text);
+      line-height: 1;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .impact-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--hero-sub);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--hero-bg);
+      border-top: 1px solid var(--stat-sep);
+      padding: 28px 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--hero-text);
+      margin-bottom: 6px;
+    }
+    .footer-meta { font-size: 12px; color: var(--hero-sub); line-height: 1.8; }
+    .footer-meta a { color: var(--hero-sub); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      nav { padding: 16px 20px; }
+      main { padding: 48px 20px 60px; }
+      .receipt { padding: 24px 18px; }
+      .impact-stats { flex-direction: column; }
+      .impact-stat + .impact-stat { border-left: none; border-top: 1px solid var(--stat-sep); }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="38" height="38" rx="9" fill="#3D8B5E"/>
+      <path d="M9 26 Q15 10 30 10" stroke="#E8A840" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M9 26 Q19 18 30 10 Q30 10 19 23 Q14 28 9 26Z" fill="rgba(232,168,64,0.22)"/>
+      <line x1="8" y1="29" x2="30" y2="29" stroke="#E8A840" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+    <div>
+      <div class="nav-name">Horizon Foundation</div>
+      <div class="nav-sub">Building Futures</div>
+    </div>
+  </div>
+  <a href="HorizonFoundation.html" class="nav-link">Give again</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <div class="check-wrap" aria-hidden="true">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M10 20.5L17 28L30 13" stroke="#3D8B5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="eyebrow">Donation confirmed</div>
+
+  <h1>Your generosity makes a real <em>difference</em></h1>
+
+  <p class="sub">Thank you for supporting Horizon Foundation. A receipt has been sent to your email. Your contribution goes directly to programs that change lives.</p>
+
+  <!-- RECEIPT CARD -->
+  <div class="receipt">
+    <div class="receipt-label">Donation summary</div>
+
+    <div class="receipt-row">
+      <span class="receipt-key">Amount</span>
+      <span class="receipt-val receipt-amount" id="receiptAmount">—</span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-key">Type</span>
+      <span class="receipt-val" id="receiptType">—</span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-key">Status</span>
+      <span class="receipt-val"><span class="badge">Confirmed</span></span>
+    </div>
+    <div class="receipt-row">
+      <span class="receipt-key">Date</span>
+      <span class="receipt-val" id="receiptDate">—</span>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <a href="HorizonFoundation.html" class="btn-primary">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="currentColor" aria-hidden="true">
+        <path d="M7.5 13s-5.5-3.6-5.5-7.1a3.3 3.3 0 016.6 0 3.3 3.3 0 016.6 0C15.2 9.4 7.5 13 7.5 13z"/>
+      </svg>
+      Give again
+    </a>
+    <button class="btn-ghost" id="shareBtn">Share the mission</button>
+  </div>
+
+</main>
+
+<!-- IMPACT STRIP -->
+<div class="impact">
+  <div class="impact-inner">
+    <div class="impact-eyebrow">Your impact so far</div>
+    <p class="impact-headline">Together we've transformed 2,400 families across 38 communities this year</p>
+    <div class="impact-stats">
+      <div class="impact-stat">
+        <div class="impact-num">2,400+</div>
+        <div class="impact-label">Families Served</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-num">38</div>
+        <div class="impact-label">Communities</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-num">$1.2M</div>
+        <div class="impact-label">Raised This Year</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Horizon Foundation</div>
+  <div class="footer-meta">
+    501(c)(3) nonprofit · EIN 00-0000000<br>
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Contact Us</a> &nbsp;·&nbsp; <a href="#">Annual Report</a>
+  </div>
+</footer>
+
+<script>
+  // Populate receipt from URL params (Stripe adds ?session_id=... on redirect)
+  const params = new URLSearchParams(window.location.search);
+
+  const amountEl = document.getElementById('receiptAmount');
+  const typeEl   = document.getElementById('receiptType');
+  const dateEl   = document.getElementById('receiptDate');
+
+  const amount = params.get('amount');
+  const type   = params.get('type');
+
+  amountEl.textContent = amount ? '$' + parseFloat(amount).toLocaleString('en-US', { minimumFractionDigits: 0 }) : 'Donation';
+  typeEl.textContent   = type === 'Recurring' ? 'Recurring' : 'One-time';
+  dateEl.textContent   = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  // Share button
+  document.getElementById('shareBtn').addEventListener('click', function() {
+    const text = 'I just donated to Horizon Foundation — they\'re transforming families across 38 communities. Join me!';
+    if (navigator.share) {
+      navigator.share({ title: 'Horizon Foundation', text: text, url: window.location.origin });
+    } else {
+      navigator.clipboard.writeText(text).then(function() {
+        const btn = document.getElementById('shareBtn');
+        btn.textContent = 'Copied to clipboard!';
+        setTimeout(function() { btn.textContent = 'Share the mission'; }, 2500);
+      });
+    }
+  });
+</script>
+</body>
+</html>
